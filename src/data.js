@@ -1,0 +1,38 @@
+export const meals = [
+    {
+        name: 'Focaccia',
+        vege: true,
+        type: 'kolacja',
+        emoji: '🌜',
+        hot: true,
+        thermomix: true,
+        link: 'https://cookidoo.pl/recipes/recipe/pl/r56969',
+    },
+    {
+        name: 'Nuggetsy z kurczaka',
+        vege: false,
+        type: 'obiad',
+        emoji: '🍽',
+        hot: true,
+        thermomix: true,
+        link: 'https://cookidoo.pl/recipes/recipe/pl/r95738',
+    },
+    {
+        name: 'Tiramisu',
+        vege: false,
+        type: 'deser',
+        emoji: '🍰',
+        hot: false,
+        thermomix: true,
+        link: 'https://cookidoo.pl/recipes/recipe/pl/r55352',
+    },
+    {
+        name: 'Spaghetti',
+        vege: false,
+        type: 'obiad',
+        emoji: '🍽',
+        hot: true,
+        thermomix: false,
+        link: '',
+    },
+]
