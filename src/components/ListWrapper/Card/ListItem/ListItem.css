@@ -1,0 +1,11 @@
+.meal__listItem span {
+  margin-right: 16px;
+}
+
+.meal__link {
+  text-decoration: none;
+}
+
+.meal__link:visited {
+  color: black;
+}

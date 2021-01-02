@@ -1,13 +1,13 @@
 import React from 'react'
 import './ListWrapper.css'
-import ListItem from './ListItem/ListItem'
+import Card from './Card/Card'
 import { meals } from '../../data'
 
 
 const ListWrapper = () => (
     <ul className="listWrapper">
         {meals.map(item => (
-            <ListItem key={item.name} {...item} />
+            <Card key={item.name} {...item} />
         ))}
     </ul>
 )

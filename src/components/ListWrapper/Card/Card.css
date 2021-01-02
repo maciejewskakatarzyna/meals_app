@@ -10,7 +10,7 @@
 
 .meal__name {
   margin: 0;
-  font-size: 30px;
+  font-weight: 700;
   text-align: center;
 }
 
@@ -36,16 +36,15 @@
 }
 
 .meal__button {
-  font-size: 14px;
-  font-weight: 300;
+  font-size: 12px;
+  font-weight: 500;
   display: block;
   margin: 30px auto 0;
-  padding: 10px 20px;
+  padding: 7px 12px;
   background: #fff;
   border: none;
 }
 
 .meal__button:hover {
-  font-weight: 700;
   cursor: pointer;
 }
