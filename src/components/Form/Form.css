@@ -1,0 +1,88 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.form__wrapper {
+  width: 50%;
+  margin: 50px auto 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form {
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.item {
+  width: 100%;
+  margin: 24px 0;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.item--radio {
+  display: flex;
+  align-items: center;
+}
+
+.item__bar {
+  width: 100%;
+  height: 2px;
+  background: #7d7d7d;
+  /* transition: 0.1s all; */
+}
+
+.item__label:not(.item__radio > .item__label),
+.item__radioQuestion {
+  color: #7d7d7d;
+  /* position: absolute; */
+  /* top: 3px;
+    left: 0; */
+  /* transition: 0.2s ease-out all; */
+  font-size: 16px;
+}
+
+.item__input {
+  color: #7d7d7d;
+  font-size: 16px;
+  border: none;
+  line-height: 22px;
+  width: 100%;
+  background: none;
+}
+
+/* .item__input:focus {
+    outline: none;
+  }
+  
+  .item__input:focus + .item__label {
+    top: -22px;
+    font-size: 13px;
+  }
+  
+  .item__input:not(:placeholder-shown) + .item__label {
+    top: -22px;
+    font-size: 13px;
+  }
+  
+  .item__input:focus ~ .item__bar {
+    background: #1e58ff;
+  } */
+
+.form__button {
+  font-size: 10px;
+  text-decoration: none;
+  padding: 7px 12px;
+  font-weight: 500;
+  background: none;
+  border: 2px solid black;
+  color: black;
+}

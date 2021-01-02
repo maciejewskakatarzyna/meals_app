@@ -23,7 +23,7 @@ const Card = ({
                     <ul className="meal__list">
 
                         <ListItem emoji={vegeEmoji}> {vege ? `vege` : `mięsne`} </ListItem>
-                        <ListItem emoji={emoji}>{type}</ListItem>
+                        <ListItem emoji={emoji}> {type}</ListItem>
                         <ListItem emoji={hotEmoji}> {hot ? `na gorąco` : `na zimno`} </ListItem>
                         <ListItem emoji={thermomixEmoji}> {thermomix ? `thermomix` : <s>thermomix</s>} </ListItem>
                         <ListItem emoji={linkEmoji}><a
@@ -31,7 +31,7 @@ const Card = ({
                             href={link ? link : null}
                             target="_blank"
                             rel="noopener noreferrer"
-                        >{link ? `Cookido` : `Brak`}</a></ListItem>
+                        > {link ? `Cookido` : `Brak`}</a></ListItem>
 
                     </ul>
                     <button className="meal__button">Dodaj do menu</button>
