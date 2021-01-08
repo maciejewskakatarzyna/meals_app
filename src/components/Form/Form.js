@@ -1,122 +1,136 @@
 import React from 'react'
-import './Form.css'
+import styles from './Form.module.scss'
 
 const Form = () => (
-    <div className="form__wrapper">
-        <h2 className="form__title">Dodaj nowe danie:</h2>
-        <form className="form">
-            <div className="item">
-                <input
-                    className="item__input"
+    <div className={styles.wrapper}>
+        <h1 className={styles.title}>Dodaj nowe danie</h1>
+        <form
+            autoComplete="off"
+            className={styles.form}
+        //   onSubmit={this.props.submitFn}
+        >
+            <div className={styles.formOptions}>
+                <label className={styles.radio}>
+                    <input
+                        type='radio'
+                        id="dinner"
+                        checked
+                    >
+                    </input>
+                    <div className={styles.radioButton} />
+            Obiad
+            </label>
+                <label className={styles.radio}>
+                    <input
+                        type='radio'
+                        id="dessert"
+                    // checked
+                    >
+                    </input>
+                    <div className={styles.radioButton} />
+            Deser
+            </label>
+                <label className={styles.radio}>
+                    <input
+                        type='radio'
+                        id="sapper"
+                    // checked
+                    >
+                    </input>
+                    <div className={styles.radioButton} />
+            Kolacja
+            </label>
+            </div>
+            <div className={styles.formItem}>
+                <input className={styles.input}
                     type="text"
                     name="name"
                     id="name"
-                    placeholder=" "
-                    maxlength="30"
-                />
-                <label class="item__label" htmlFor="name"> Nazwa </label>
-                <div className="item__bar" />
+                    required
+                    placeholder=" "></input>
+                <label className={styles.label}
+                    htmlFor='name'>Nazwa</label>
+                <div className={styles.formItemBar} />
             </div>
-            <div className="item">
-                <div className="item--radio">
-                    <p className="item__radioQuestion">Vege: </p>
-                    <input
-                        className="item__input"
-                        type="radio"
-                        name="vege"
-                        id="vege"
-                        value="Tak" checked />
-                    <label className="item__label" htmlFor="vege"> Tak </label>
-                    <input
-                        className="item__input"
-                        type="radio"
-                        name="vege"
-                        id="vege"
-                        value="Nie" />
-                    <label className="item__label" htmlFor="vege"> Nie </label></div>
-                <div className="item__bar" />
-            </div>
-            <div className="item">
-                <div className="item--radio">
-                    <p className="item__radioQuestion">Rodzaj: </p>
-                    <input
-                        className="item__input"
-                        type="radio"
-                        name="type"
-                        id="type"
-                        value="obiad" checked />
-                    <label className="item__label" htmlFor="type"> obiad </label>
-                    <input
-                        className="item__input"
-                        type="radio"
-                        name="type"
-                        id="type"
-                        value="kolacja" />
-                    <label className="item__label" htmlFor="type"> kolacja </label>
-                    <input
-                        className="item__input"
-                        type="radio"
-                        name="type"
-                        id="type"
-                        value="deser" />
-                    <label className="item__label" htmlFor="type"> deser </label>
-                </div>
-                <div className="item__bar" />
-            </div>
-            <div className="item">
-                <div className="item--radio">
-                    <p className="item__radioQuestion">Na gorąco: </p>
-                    <input
-                        className="item__input"
-                        type="radio"
-                        name="hot"
-                        id="hot"
-                        value="Tak" checked />
-                    <label className="item__label" htmlFor="hot"> Tak </label>
-                    <input
-                        className="item__input"
-                        type="radio"
-                        name="hot"
-                        id="hot"
-                        value="Nie" />
-                    <label className="item__label" htmlFor="hot"> Nie </label>
-                </div>
-                <div className="item__bar" />
-            </div>
-            <div className="item">
-                <div className="item--radio">
-                    <p className="item__radioQuestion">Thermomix: </p>
-                    <input
-                        className="item__input"
-                        type="radio"
-                        name="tm"
-                        id="tm"
-                        value="Tak" checked />
-                    <label className="item__label" htmlFor="tm"> Tak </label>
-                    <input
-                        className="item__input"
-                        type="radio"
-                        name="tm"
-                        id="tm"
-                        value="Nie" />
-                    <label className="item__label" htmlFor="tm"> Nie </label>
-                </div>
-                <div className="item__bar" />
-            </div>
-            <div className="item">
-                <input
-                    className="item__input"
+            <div className={styles.formItem}>
+                <input className={styles.input}
                     type="text"
                     name="link"
                     id="link"
-                    placeholder=" "
-                />
-                <label className="item__label" htmlFor="link"> Link </label>
-                <div className="item__bar" />
+                    required
+                    placeholder=" "></input>
+                <label className={styles.label}
+                    htmlFor='link'>Link</label>
+                <div className={styles.formItemBar} />
             </div>
-            <button className="form__button">Dodaj nowe danie</button>
+            <div className={styles.formItem}>
+                <input className={styles.input}
+                    type="text"
+                    name="image"
+                    id="image"
+                    required
+                    placeholder=" "></input>
+                <label className={styles.label}
+                    htmlFor='image'>Zdjęcie</label>
+                <div className={styles.formItemBar} />
+            </div>
+
+            <div className={styles.formOptions}>
+                <label className={styles.checkbox}>
+                    <input
+                        type='checkbox'
+                        id="vege"
+
+                    >
+                    </input>
+                    <div className={styles.checkboxButton} />
+            Vege
+            </label>
+                <label className={styles.checkbox}>
+                    <input
+                        type='checkbox'
+                        id="hot"
+
+                    >
+                    </input>
+                    <div className={styles.checkboxButton} />
+            Na gorąco
+            </label>
+                <label className={styles.checkbox}>
+                    <input
+                        type='checkbox'
+                        id="sweet"
+
+                    >
+                    </input>
+                    <div className={styles.checkboxButton} />
+            Na słodko
+            </label>
+                <label className={styles.checkbox}>
+                    <input
+                        type='checkbox'
+                        id="soup"
+
+                    >
+                    </input>
+                    <div className={styles.checkboxButton} />
+            Zupa
+            </label>
+                <label className={styles.checkbox}>
+                    <input
+                        type='checkbox'
+                        id="salad"
+
+                    >
+                    </input>
+                    <div className={styles.checkboxButton} />
+            Sałatka
+            </label>
+            </div>
+
+            <button className={styles.button}>Dodaj nowe danie</button>
         </form>
-    </div >
+    </div>
 )
 
 export default Form;

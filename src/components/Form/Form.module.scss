@@ -1,0 +1,150 @@
+.wrapper {
+  position: absolute;
+  top: 100px;
+  margin: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.form {
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  button {
+    margin-top: 50px;
+  }
+}
+
+.radio {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin: 20px 20px 0 0;
+  font-weight: 500;
+  color: #333333;
+
+  input {
+    opacity: 0;
+    position: absolute;
+  }
+
+  &Button {
+    margin-right: 5px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid#009a3d;
+  }
+
+  input:checked + &Button {
+    background-color: #009a3d;
+    box-shadow: inset 0 0 0 2px white;
+  }
+}
+
+.title {
+  margin: 0;
+  font-size: 36px;
+  line-height: 44px;
+  color: #113c2b;
+  font-weight: 700;
+}
+
+.formItem {
+  width: 100%;
+  margin: 24px 0;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.formItemBar {
+  width: 100%;
+  height: 2px;
+  background: #333333;
+  transition: 0.1s all;
+}
+
+.label {
+  color: #333333;
+  position: absolute;
+  top: 3px;
+  left: 0;
+  transition: 0.2s ease-out all;
+  font-size: 16px;
+}
+
+.input {
+  color: #333333;
+  font-size: 16px;
+  border: none;
+  line-height: 22px;
+  width: 100%;
+  background: none;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input:focus + .label {
+  top: -22px;
+  font-size: 13px;
+}
+
+.input:not(:placeholder-shown) + .label {
+  top: -22px;
+  font-size: 13px;
+}
+
+.input:focus ~ .formItemBar {
+  background: #009a3d;
+}
+
+.button {
+  font-size: 14px;
+  line-height: 24px;
+  text-decoration: none;
+  padding: 7px 12px;
+  font-weight: 700;
+  background: none;
+  border: 2px solid #009a3d;
+  border-radius: 4px;
+  color: #009a3d;
+  cursor: pointer;
+
+  &:hover {
+    color: #113c2b;
+    border-color: #113c2b;
+  }
+}
+
+.checkbox {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin: 20px 20px 0 0;
+  font-weight: 500;
+  color: #333333;
+
+  &Button {
+    margin-right: 5px;
+    width: 15px;
+    height: 15px;
+    border: 2px solid#009a3d;
+  }
+  input {
+    opacity: 0;
+    position: absolute;
+  }
+
+  input:checked + &Button {
+    background-color: #009a3d;
+    box-shadow: inset 0 0 0 2px white;
+  }
+}
