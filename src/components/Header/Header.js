@@ -18,7 +18,7 @@ const Header = () => (
                     </li>
                 </ul>
             </nav>
-            <button className={styles.button}>Dodaj nowe danie</button>
+            <button className={styles.button}>Dodaj danie</button>
         </div></div>
 
 );
