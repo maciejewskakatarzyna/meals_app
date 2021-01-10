@@ -1,19 +1,49 @@
 import React from 'react'
 import styles from './Card.module.scss'
+import { meals } from '../../data'
 
-const Card = () => (
-    <div className={styles.wrapper}>
-        <div className={styles.info}>
-            <h1 className={styles.title}>Meksykańska zupa z batatami, fasolą i chorizo</h1>
-            <p>test</p>
-            <div className={styles.btnSection}>
-                <button className={styles.addBtn}>Dodaj do kalendarza</button>
-                <button className={styles.delBtn}>Usuń danie</button></div>
-        </div>
-        <div className={styles.imageContainer}>
-            <img className={styles.image} src='https://assets.tmecosys.com/image/upload/t_web276x230@2x/img/recipe/ras/Assets/73BDF0E2-F8C2-42BD-AB20-6B3FF913A9EB/Derivates/5adab12c-e759-4857-979e-0256fce640ad.jpg' alt='chorizo soup' />
-        </div>
-    </div>
-)
+
+const Card = () => {
+    const type = meals[3].type
+    const isVege = meals[3].vege
+    const isHot = meals[3].hot
+    const isSweet = meals[3].sweet
+    const isSoup = meals[3].soup
+    const isSalad = meals[3].salad
+
+    return (
+        <div className={styles.wrapper}>
+            <div className={styles.info}>
+                <h1 className={styles.title}>{meals[3].name}</h1>
+                <ul>
+                    {type === 'dessert' ? (<li>deser</li>) : null}
+                    <li>
+                        {isVege ? `vege` : `mięsne`}
+                    </li>
+                    <li>
+                        {isHot ? `na gorąco` : `na zimno`}
+                    </li>
+                    <li>
+                        {isSweet ? `na słodko` : `na słono`}
+                    </li>
+                    <li>
+                        {isSoup ? `zupa` : null}
+                    </li>
+                    <li>
+                        {isSalad ? `sałatka` : null}
+                    </li>
+
+                </ul>
+                <a className={styles.link} href={meals[3].link}>Sprawdź przepis!</a>
+                <div className={styles.btnSection}>
+                    <button className={styles.addBtn}>Dodaj do kalendarza</button>
+                    <button className={styles.delBtn}>Usuń danie</button></div>
+            </div>
+            <div className={styles.imageContainer}>
+                <img className={styles.image} src={meals[3].image} alt={meals[3].name} />
+            </div>
+        </div >
+    )
+}
 
 export default Card;

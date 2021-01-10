@@ -2,13 +2,16 @@ import React from 'react'
 import styles from './ListItem.module.scss'
 import dotsImage from '../../assets/images/dots.png'
 
-const ListItem = () => (
+const ListItem = ({
+    name,
+    image,
+}) => (
     <li className={styles.listItem}>
         <img
             className={styles.listItemImg}
-            src='https://assets.tmecosys.com/image/upload/t_web276x230@2x/img/recipe/ras/Assets/73BDF0E2-F8C2-42BD-AB20-6B3FF913A9EB/Derivates/5adab12c-e759-4857-979e-0256fce640ad.jpg' alt='chorrizo soup' />
+            src={image} alt={name} />
         <div className={styles.listItemTitle}>
-            <p>Meksykańska zupa z batatami, fasolą i chorizo</p>
+            <p>{name}</p>
             <button>
                 <img className={styles.dots}
                     src={dotsImage} alt=""
