@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './Header.module.scss'
+import Button from '../Button/Button'
 
 const Header = ({ openFormFn }) => (
     <div className={styles.wrapper}>
@@ -18,7 +19,7 @@ const Header = ({ openFormFn }) => (
                     </li>
                 </ul>
             </nav>
-            <button onClick={openFormFn} className={styles.button}>Dodaj danie</button>
+            <Button onClick={openFormFn}>Dodaj danie</Button>
         </div></div>
 
 );

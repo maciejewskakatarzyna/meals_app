@@ -1,9 +1,10 @@
 import React from 'react'
 import styles from './Form.module.scss'
+import Button from '../Button/Button'
 
 const Form = ({ closeFormFn }) => (
     <div className={styles.wrapper}>
-        <button className={styles.closeButton} onClick={closeFormFn}></button>
+        <Button closeBtn onClick={closeFormFn}></Button>
         <h1 className={styles.title}>Dodaj nowe danie</h1>
         <form
             autoComplete="off"
@@ -129,7 +130,7 @@ const Form = ({ closeFormFn }) => (
             </label>
             </div>
 
-            <button className={styles.button}>Dodaj nowe danie</button>
+            <Button>Dodaj nowe danie</Button>
         </form>
     </div>
 )
