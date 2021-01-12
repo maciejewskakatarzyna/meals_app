@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Header.module.scss'
 
-const Header = () => (
+const Header = ({ openFormFn }) => (
     <div className={styles.wrapper}>
         <div className={styles.wrapperMain}>
             <div className={styles.logo}>ThermoPlan</div>
@@ -18,7 +18,7 @@ const Header = () => (
                     </li>
                 </ul>
             </nav>
-            <button className={styles.button}>Dodaj danie</button>
+            <button onClick={openFormFn} className={styles.button}>Dodaj danie</button>
         </div></div>
 
 );

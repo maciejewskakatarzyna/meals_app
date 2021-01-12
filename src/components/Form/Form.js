@@ -1,8 +1,9 @@
 import React from 'react'
 import styles from './Form.module.scss'
 
-const Form = () => (
+const Form = ({ closeFormFn }) => (
     <div className={styles.wrapper}>
+        <button className={styles.closeButton} onClick={closeFormFn}></button>
         <h1 className={styles.title}>Dodaj nowe danie</h1>
         <form
             autoComplete="off"

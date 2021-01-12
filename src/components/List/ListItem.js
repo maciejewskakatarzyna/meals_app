@@ -5,8 +5,9 @@ import dotsImage from '../../assets/images/dots.png'
 const ListItem = ({
     name,
     image,
+    ...props
 }) => (
-    <li className={styles.listItem}>
+    <li className={styles.listItem} {...props}>
         <img
             className={styles.listItemImg}
             src={image} alt={name} />

@@ -3,7 +3,7 @@ import styles from './Card.module.scss'
 import { meals } from '../../data'
 
 
-const Card = () => {
+const Card = ({ closeCardFn }) => {
     const type = meals[3].type
     const isVege = meals[3].vege
     const isHot = meals[3].hot
@@ -14,6 +14,8 @@ const Card = () => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.info}>
+                <button onClick={closeCardFn} className={styles.closeButton}></button>
+
                 <h1 className={styles.title}>{meals[3].name}</h1>
                 <ul>
                     {type === 'dessert' ? (<li>deser</li>) : null}
