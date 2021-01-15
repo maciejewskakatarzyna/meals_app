@@ -24,8 +24,17 @@ class App extends React.Component {
   state = {
     items: [...initialStateArray],
     isCardOpen: false,
-    isFormOpen: false,
+    isFormOpen: true,
   };
+
+  addMeal = (e, newItem) => {
+    e.preventDefault();
+
+    this.setState(prevState => ({
+      [newItem.type]: [...prevState[newItem.type], newItem],
+    }))
+    this.closeForm();
+  }
 
   openCard = () => {
     this.setState({
