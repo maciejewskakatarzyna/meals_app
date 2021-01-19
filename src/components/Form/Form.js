@@ -3,20 +3,18 @@ import styles from './Form.module.scss'
 import Button from '../Button/Button'
 import { useForm } from 'react-hook-form'
 
+const Form = ({ toggleForm, addItem }) => {
 
-const Form = ({ closeFormFn }) => {
-
-    const { register, handleSubmit, watch } = useForm();
-    const onSubmit = data => console.log(data)
-
-    console.log(watch('title'))
+    const { register, handleSubmit } = useForm();
+    const onSubmit = data => {
+        addItem(data);
+    }
 
     return (
         <div className={styles.wrapper}>
-            <Button closeBtn onClick={closeFormFn}></Button>
+            <Button closeBtn onClick={() => toggleForm()}></Button>
             <h1 className={styles.title}>Dodaj nowe danie</h1>
             <form
-                autoComplete="off"
                 className={styles.form}
                 onSubmit={handleSubmit(onSubmit)}
             >
@@ -25,6 +23,7 @@ const Form = ({ closeFormFn }) => {
                         <input
                             type='radio'
                             id='dinner'
+                            name='dinner'
                         >
                         </input>
                         <div className={styles.radioButton} />
@@ -34,6 +33,7 @@ const Form = ({ closeFormFn }) => {
                         <input
                             type='radio'
                             id='dessert'
+                            name='dessert'
                         >
                         </input>
                         <div className={styles.radioButton} />
@@ -43,6 +43,7 @@ const Form = ({ closeFormFn }) => {
                         <input
                             type='radio'
                             id='sapper'
+                            name='sapper'
                         >
                         </input>
                         <div className={styles.radioButton} />
@@ -54,7 +55,9 @@ const Form = ({ closeFormFn }) => {
                         type="text"
                         name="title"
                         ref={register({ required: true })}
-                        placeholder=" "></input>
+                        placeholder=" "
+
+                    ></input>
                     <label className={styles.label}
                         htmlFor='name'>Nazwa</label>
                     <div className={styles.formItemBar} />
@@ -133,9 +136,9 @@ const Form = ({ closeFormFn }) => {
             </label>
                 </div>
 
-                <Button>Dodaj nowe danie</Button>
+                <Button type="submit">Dodaj nowe danie</Button>
             </form>
-        </div>
+        </div >
     )
 }
 
