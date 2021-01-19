@@ -5,7 +5,7 @@ import { meals } from '../../data'
 
 
 
-const Card = ({ closeCardFn }) => {
+const Card = ({ toggleCard }) => {
     const type = meals[3].type
     const isVege = meals[3].vege
     const isHot = meals[3].hot
@@ -16,7 +16,7 @@ const Card = ({ closeCardFn }) => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.info}>
-                <Button onClick={closeCardFn} closeBtn></Button>
+                <Button onClick={() => toggleCard()} closeBtn></Button>
 
                 <h1 className={styles.title}>{meals[3].name}</h1>
                 <ul>

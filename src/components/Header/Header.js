@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Header.module.scss'
 import Button from '../Button/Button'
 
-const Header = ({ openFormFn }) => (
+const Header = ({ toggleForm }) => (
     <div className={styles.wrapper}>
         <div className={styles.wrapperMain}>
             <div className={styles.logo}>ThermoPlan</div>
@@ -19,7 +19,7 @@ const Header = ({ openFormFn }) => (
                     </li>
                 </ul>
             </nav>
-            <Button onClick={openFormFn}>Dodaj danie</Button>
+            <Button onClick={() => toggleForm()}>Dodaj danie</Button>
         </div></div>
 
 );

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './index.css';
 import Form from './components/Form/Form'
 import Header from './components/Header/Header';
@@ -7,7 +7,7 @@ import Card from './components/Card/Card'
 
 const initialStateArray = [
   {
-    name: 'Meksykańska zupa z batatami, fasolą i chorizo',
+    title: 'Meksykańska zupa z batatami, fasolą i chorizo',
     image: 'https://assets.tmecosys.com/image/upload/t_web276x230@2x/img/recipe/ras/Assets/73BDF0E2-F8C2-42BD-AB20-6B3FF913A9EB/Derivates/5adab12c-e759-4857-979e-0256fce640ad.jpg',
     link: 'https://cookidoo.pl/recipes/recipe/pl/r258461',
     type: 'dinner',
@@ -19,51 +19,42 @@ const initialStateArray = [
   }
 ]
 
-class App extends React.Component {
+const App = (props) => {
 
-  state = {
-    items: [...initialStateArray],
-    isCardOpen: false,
-    isFormOpen: false,
-  };
+  const [isCardOpen, setCard] = useState(false);
+  const [isFormOpen, setForm] = useState(false);
+  const [items, setItem] = useState([...initialStateArray])
 
-  openCard = () => {
-    this.setState({
-      isCardOpen: true,
-    })
+  const toggleForm = () => {
+    isFormOpen ? setForm(false) : setForm(true)
   }
 
-  closeCard = () => {
-    this.setState({
-      isCardOpen: false,
-    })
+  const toggleCard = () => {
+    isCardOpen ? setCard(false) : setCard(true)
   }
 
-  openForm = () => {
-    this.setState({
-      isFormOpen: true,
-    })
-  }
-
-  closeForm = () => {
-    this.setState({
-      isFormOpen: false,
-    })
+  const addItem = (data) => {
+    const item = {
+      title: data.title,
+      image: data.image,
+      link: data.link,
+    }
+    setItem(prevState => [...prevState, item])
+    toggleForm()
   }
 
 
-  render() {
-    const { isCardOpen, isFormOpen } = this.state;
-    return (
-      <>
-        <Header openFormFn={this.openForm} />
-        <List items={this.state.items} openCardFn={this.openCard}></List>
-        {isCardOpen && <Card closeCardFn={this.closeCard}></Card>}
-        {isFormOpen && <Form closeFormFn={this.closeForm}></Form>}
-      </>
-    )
-  }
+
+  return (
+    <>
+      <Header toggleForm={toggleForm} />
+      <List items={items} toggleCard={toggleCard}></List>
+      {isCardOpen && <Card toggleCard={toggleCard}></Card>}
+      {isFormOpen && <Form toggleForm={toggleForm} addItem={addItem}></Form>}
+    </>
+  )
 }
+
 
 
 export default App;
