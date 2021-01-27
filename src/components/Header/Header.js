@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Header.module.scss'
-import Button from '../Button/Button'
+import Button from 'components/Button/Button'
 
 const Header = ({ toggleForm }) => (
     <div className={styles.wrapper}>

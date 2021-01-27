@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import './index.css';
-import Form from './components/Form/Form'
-import Header from './components/Header/Header';
-import List from './components/List/List'
-import Card from './components/Card/Card'
+import Form from 'components/Form/Form'
+import Header from 'components/Header/Header';
+import List from 'components/List/List'
+import Card from 'components/Card/Card'
 
 const initialStateArray = [
   {
@@ -19,18 +19,24 @@ const initialStateArray = [
   }
 ]
 
-const App = (props) => {
+const App = () => {
 
   const [isCardOpen, setCard] = useState(false);
   const [isFormOpen, setForm] = useState(false);
   const [items, setItem] = useState([...initialStateArray])
+  const [elName, setElName] = useState(null)
 
   const toggleForm = () => {
-    isFormOpen ? setForm(false) : setForm(true)
+    isFormOpen ? setForm(false) : setForm(true);
   }
 
   const toggleCard = () => {
-    isCardOpen ? setCard(false) : setCard(true)
+    isCardOpen ? setCard(false) : setCard(true);
+  }
+
+  const handleCardOpen = (e) => {
+    setElName(e.target.parentNode.getAttribute('name'))
+    return elName
   }
 
   const addItem = (data) => {
@@ -44,12 +50,11 @@ const App = (props) => {
   }
 
 
-
   return (
     <>
       <Header toggleForm={toggleForm} />
-      <List items={items} toggleCard={toggleCard}></List>
-      {isCardOpen && <Card toggleCard={toggleCard}></Card>}
+      <List items={items} handleCardOpen={handleCardOpen} toggleCard={toggleCard}></List>
+      {isCardOpen && <Card items={items} toggleCard={toggleCard} ></Card>}
       {isFormOpen && <Form toggleForm={toggleForm} addItem={addItem}></Form>}
     </>
   )

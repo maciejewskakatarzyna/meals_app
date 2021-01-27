@@ -1,24 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './Card.module.scss'
-import Button from '../Button/Button'
-import { meals } from '../../data'
+import Button from 'components/Button/Button'
+
+const Card = ({
+    toggleCard,
+    items,
+    elName,
+    ...props
+}) => {
 
 
-
-const Card = ({ toggleCard }) => {
-    const type = meals[3].type
-    const isVege = meals[3].vege
-    const isHot = meals[3].hot
-    const isSweet = meals[3].sweet
-    const isSoup = meals[3].soup
-    const isSalad = meals[3].salad
+    const name = elName
+    const type = items.map((item) => item.type)
+    const isVege = items.map((item) => item.vege)
+    const isHot = items.map((item) => item.hot)
+    const isSweet = items.map((item) => item.sweet)
+    const isSoup = items.map((item) => item.soup)
+    const isSalad = items.map((item) => item.salad)
 
     return (
         <div className={styles.wrapper}>
             <div className={styles.info}>
                 <Button onClick={() => toggleCard()} closeBtn></Button>
 
-                <h1 className={styles.title}>{meals[3].name}</h1>
+                <h1 className={styles.title}>{name}</h1>
                 <ul>
                     {type === 'dessert' ? (<li>deser</li>) : null}
                     <li>
@@ -38,13 +43,13 @@ const Card = ({ toggleCard }) => {
                     </li>
 
                 </ul>
-                <a className={styles.link} href={meals[3].link}>Sprawdź przepis!</a>
+                <a className={styles.link} href={items[0].link}>Sprawdź przepis!</a>
                 <div className={styles.btnSection}>
                     <Button >Dodaj do kalendarza</Button>
                     <Button secondary>Usuń danie</Button></div>
             </div>
             <div className={styles.imageContainer}>
-                <img className={styles.image} src={meals[3].image} alt={meals[3].name} />
+                <img className={styles.image} src={items[0].image} alt={items[0].name} />
             </div>
         </div >
     )

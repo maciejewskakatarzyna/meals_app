@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Form.module.scss'
-import Button from '../Button/Button'
+import Button from 'components/Button/Button'
 import { useForm } from 'react-hook-form'
 
 const Form = ({ toggleForm, addItem }) => {
@@ -24,6 +24,7 @@ const Form = ({ toggleForm, addItem }) => {
                             type='radio'
                             id='dinner'
                             name='dinner'
+                            defaultChecked
                         >
                         </input>
                         <div className={styles.radioButton} />
