@@ -1,25 +1,18 @@
-import React from 'react'
-import styles from './List.module.scss'
-import ListItem from 'components/List/ListItem'
-import AppContext from 'context'
+import React, { useContext } from 'react';
+import styles from './List.module.scss';
+import ListItem from 'components/List/ListItem';
+import { MealsContext } from 'App';
 
-const List = ({
-    toggleCard,
-}) => (
-    <AppContext.Consumer>
-        {(context) => (
-            <ul className={styles.wrapper} >
-                {
-                    context.map((item) => (
-                        <ListItem
-                            onClick={() => toggleCard()}
-                            key={item.title}
-                            {...item} />
-                    ))
-                }
-            </ul >
-        )}
-    </AppContext.Consumer>
-);
+const List = ({ toggleCard }) => {
+  const { meals } = useContext(MealsContext);
+
+  return (
+    <ul className={styles.wrapper}>
+      {meals.map(meal => (
+        <ListItem onClick={() => toggleCard()} key={meal.title} {...meal} />
+      ))}
+    </ul>
+  );
+};
 
 export default List;
