@@ -19,12 +19,23 @@
   &Title {
     padding: 16px;
     height: 72px;
+    display: flex;
+    justify-content: space-between;
 
     p {
       font-size: 16px;
       line-height: 20px;
       font-weight: 500;
       margin: 0;
+    }
+
+    button {
+      width: 16px;
+      height: 16px;
+      padding: 0;
+      text-align: center;
+      line-height: 16px;
+      cursor: pointer;
     }
   }
 }
