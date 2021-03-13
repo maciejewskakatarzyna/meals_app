@@ -1,18 +1,19 @@
 import React, { useContext } from 'react';
-import styles from './ListItem.module.scss';
 import { MealsContext } from 'App';
+import { Wrapper, Image, Title } from './ListItem.styles';
+import DeleteButton from 'components/Button/DeleteButton';
 
 const ListItem = ({ name, image, ...props }) => {
   const { deleteMeal } = useContext(MealsContext);
 
   return (
-    <li className={styles.listItem} {...props}>
-      <img className={styles.listItemImg} src={image} alt={name} />
-      <div className={styles.listItemTitle}>
+    <Wrapper {...props}>
+      <Image src={image} alt={name} />
+      <Title>
         <p>{name}</p>
-        <button onClick={() => deleteMeal(name)}>x</button>
-      </div>
-    </li>
+        <DeleteButton onClick={() => deleteMeal(name)}></DeleteButton>
+      </Title>
+    </Wrapper>
   );
 };
 

@@ -1,17 +1,17 @@
 import React, { useContext } from 'react';
-import styles from './List.module.scss';
 import ListItem from 'components/List/ListItem';
 import { MealsContext } from 'App';
+import { Wrapper } from './List.styles';
 
 const List = ({ toggleCard }) => {
   const { meals } = useContext(MealsContext);
 
   return (
-    <ul className={styles.wrapper}>
+    <Wrapper>
       {meals.map(meal => (
         <ListItem onClick={() => toggleCard()} key={meal.title} {...meal} />
       ))}
-    </ul>
+    </Wrapper>
   );
 };
 

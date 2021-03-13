@@ -31,28 +31,6 @@ const Form = ({ toggleForm, addItem }) => {
       <Button closeBtn onClick={() => toggleForm()}></Button>
       <h1 className={styles.title}>Dodaj nowe danie</h1>
       <form className={styles.form} onSubmit={handleSubmitMeal}>
-        {/* <div className={styles.formOptions}>
-          <label className={styles.radio}>
-            <input
-              type='radio'
-              id='dinner'
-              name='dinner'
-              defaultChecked
-            ></input>
-            <div className={styles.radioButton} />
-            Obiad
-          </label>
-          <label className={styles.radio}>
-            <input type='radio' id='dessert' name='dessert'></input>
-            <div className={styles.radioButton} />
-            Deser
-          </label>
-          <label className={styles.radio}>
-            <input type='radio' id='sapper' name='sapper'></input>
-            <div className={styles.radioButton} />
-            Kolacja
-          </label>
-        </div> */}
         <div className={styles.formItem}>
           <input
             className={styles.input}
@@ -95,34 +73,6 @@ const Form = ({ toggleForm, addItem }) => {
           </label>
           <div className={styles.formItemBar} />
         </div>
-
-        {/* <div className={styles.formOptions}>
-          <label className={styles.checkbox}>
-            <input type='checkbox' id='vege'></input>
-            <div className={styles.checkboxButton} />
-            Vege
-          </label>
-          <label className={styles.checkbox}>
-            <input type='checkbox' id='hot'></input>
-            <div className={styles.checkboxButton} />
-            Na gorąco
-          </label>
-          <label className={styles.checkbox}>
-            <input type='checkbox' id='sweet'></input>
-            <div className={styles.checkboxButton} />
-            Na słodko
-          </label>
-          <label className={styles.checkbox}>
-            <input type='checkbox' id='soup'></input>
-            <div className={styles.checkboxButton} />
-            Zupa
-          </label>
-          <label className={styles.checkbox}>
-            <input type='checkbox' id='salad'></input>
-            <div className={styles.checkboxButton} />
-            Sałatka
-          </label>
-        </div> */}
 
         <Button type='submit'>Dodaj nowe danie</Button>
       </form>

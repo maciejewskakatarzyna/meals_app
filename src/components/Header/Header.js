@@ -1,27 +1,32 @@
-import React from 'react'
-import styles from './Header.module.scss'
-import Button from 'components/Button/Button'
+import React from 'react';
+import Button from 'components/Button/Button';
+import {
+  Wrapper,
+  Container,
+  Logo,
+  Navigation,
+  NavItem,
+  Link,
+} from './Header.styles';
 
 const Header = ({ toggleForm }) => (
-    <div className={styles.wrapper}>
-        <div className={styles.wrapperMain}>
-            <div className={styles.logo}>ThermoPlan</div>
-            <nav>
-                <ul className={styles.nav}>
-                    <li className={styles.navItem}>
-                        <a className={styles.navItemLink} href="#">Obiady</a>
-                    </li>
-                    <li className={styles.navItem}>
-                        <a className={styles.navItemLink} href="#">Desery</a>
-                    </li>
-                    <li className={styles.navItem}>
-                        <a className={styles.navItemLink} href="#">Kolacje</a>
-                    </li>
-                </ul>
-            </nav>
-            <Button onClick={() => toggleForm()}>Dodaj danie</Button>
-        </div></div>
-
+  <Wrapper>
+    <Container>
+      <Logo>ThermoPlan</Logo>
+      <Navigation>
+        <NavItem>
+          <Link>Obiady</Link>
+        </NavItem>
+        <NavItem>
+          <Link>Desery</Link>
+        </NavItem>
+        <NavItem>
+          <Link>Kolacje</Link>
+        </NavItem>
+      </Navigation>
+      <Button onClick={() => toggleForm()}>Dodaj danie</Button>
+    </Container>
+  </Wrapper>
 );
 
 export default Header;
