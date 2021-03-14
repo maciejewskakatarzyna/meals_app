@@ -1,4 +1,6 @@
-.button {
+import styled from 'styled-components';
+
+export const StyledButton = styled.button`
   font-size: 14px;
   line-height: 24px;
   text-decoration: none;
@@ -19,9 +21,9 @@
     background: #08853a;
     border: 2px solid #08853a;
   }
-}
+`;
 
-.secondary {
+export const SecondaryButton = styled.button`
   font-size: 14px;
   line-height: 24px;
   text-decoration: none;
@@ -42,9 +44,9 @@
     background: #cdcdcd;
     border: 2px solid #cdcdcd;
   }
-}
+`;
 
-.closeButton {
+export const StyledCloseButton = styled.button`
   width: 27px;
   height: 27px;
   background: #113c2b;
@@ -78,4 +80,4 @@
   &::after {
     transform: rotate(-45deg);
   }
-}
+`;

@@ -1,4 +1,6 @@
-button {
+import styled from 'styled-components';
+
+export const StyledDeleteButton = styled.button`
   width: 15px;
   height: 15px;
   background-color: white;
@@ -11,4 +13,4 @@ button {
     height: 100%;
     fill: #113c2b;
   }
-}
+`;

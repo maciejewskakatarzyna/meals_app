@@ -1,7 +1,15 @@
 import React, { useState, useContext } from 'react';
-import styles from './Form.module.scss';
 import Button from 'components/Button/Button';
 import { MealsContext } from 'App';
+import {
+  Wrapper,
+  FormContainer,
+  FormItem,
+  Input,
+  Label,
+  FormItemBar,
+} from './Form.styles';
+import { StyledCloseButton } from 'components/Button/Button.styles';
 
 const initialFormState = {
   name: '',
@@ -9,7 +17,7 @@ const initialFormState = {
   image: '',
 };
 
-const Form = ({ toggleForm, addItem }) => {
+const Form = ({ toggleForm }) => {
   const [formValues, setFormValues] = useState(initialFormState);
   const { handleAddMeal } = useContext(MealsContext);
 
@@ -27,56 +35,47 @@ const Form = ({ toggleForm, addItem }) => {
   };
 
   return (
-    <div className={styles.wrapper}>
-      <Button closeBtn onClick={() => toggleForm()}></Button>
-      <h1 className={styles.title}>Dodaj nowe danie</h1>
-      <form className={styles.form} onSubmit={handleSubmitMeal}>
-        <div className={styles.formItem}>
-          <input
-            className={styles.input}
+    <Wrapper>
+      <StyledCloseButton onClick={() => toggleForm()}></StyledCloseButton>
+      <h1>Dodaj nowe danie</h1>
+      <FormContainer onSubmit={handleSubmitMeal}>
+        <FormItem>
+          <Input
             type='text'
             name='name'
             value={formValues.name}
             onChange={handleInputChange}
             placeholder=' '
-          ></input>
-          <label className={styles.label} htmlFor='name'>
-            Nazwa
-          </label>
-          <div className={styles.formItemBar} />
-        </div>
-        <div className={styles.formItem}>
-          <input
-            className={styles.input}
+          ></Input>
+          <Label htmlFor='name'>Nazwa</Label>
+          <FormItemBar />
+        </FormItem>
+        <FormItem>
+          <Input
             type='text'
             name='link'
             value={formValues.link}
             onChange={handleInputChange}
             placeholder=' '
-          ></input>
-          <label className={styles.label} htmlFor='link'>
-            Link
-          </label>
-          <div className={styles.formItemBar} />
-        </div>
-        <div className={styles.formItem}>
-          <input
-            className={styles.input}
+          ></Input>
+          <Label htmlFor='link'>Link</Label>
+          <FormItemBar />
+        </FormItem>
+        <FormItem>
+          <Input
             type='text'
             name='image'
             value={formValues.image}
             onChange={handleInputChange}
             placeholder=' '
-          ></input>
-          <label className={styles.label} htmlFor='image'>
-            Zdjęcie
-          </label>
-          <div className={styles.formItemBar} />
-        </div>
+          ></Input>
+          <Label htmlFor='image'>Zdjęcie</Label>
+          <FormItemBar />
+        </FormItem>
 
         <Button type='submit'>Dodaj nowe danie</Button>
-      </form>
-    </div>
+      </FormContainer>
+    </Wrapper>
   );
 };
 
