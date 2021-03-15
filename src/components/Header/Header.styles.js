@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   height: 72px;
@@ -30,7 +31,7 @@ export const NavItem = styled.li`
   list-style: none;
 `;
 
-export const Link = styled.a`
+export const Link = styled(NavLink)`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.darkGreen};
   font-size: ${({ theme }) => theme.fontSize.normal};
@@ -44,7 +45,8 @@ export const Link = styled.a`
   }
 `;
 
-export const Logo = styled.div`
+export const Logo = styled(NavLink)`
+  text-decoration: none;
   font-size: ${({ theme }) => theme.fontSize.large};
   font-weight: 700;
   color: ${({ theme }) => theme.colors.lightGreen};

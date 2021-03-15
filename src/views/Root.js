@@ -7,6 +7,10 @@ import Form from 'components/Form/Form';
 import List from 'components/List/List';
 import Card from 'components/Card/Card';
 import MainTemplate from 'components/templates/MainTemplate/MainTemplate';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Dinners from './Dinners';
+import Desserts from './Desserts';
+import Sappers from './Sappers';
 
 export const MealsContext = React.createContext({
   meals: [],
@@ -47,20 +51,27 @@ const Root = () => {
   };
 
   return (
-    <>
+    <Router>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <FormContext.Provider value={{ toggleForm }}>
           <MainTemplate>
             <MealsContext.Provider value={{ meals, handleAddMeal, deleteMeal }}>
-              <List toggleCard={toggleCard}></List>
-              {isCardOpen && <Card toggleCard={toggleCard}></Card>}
+              <Switch>
+                <Route exact path='/'>
+                  <List toggleCard={toggleCard}></List>
+                </Route>
+                <Route path='/dinners' component={Dinners} />
+                <Route path='/desserts' component={Desserts} />
+                <Route path='/sappers' component={Sappers} />
+              </Switch>
+              {/* {isCardOpen && <Card toggleCard={toggleCard}></Card>} */}
               {isFormOpen && <Form toggleForm={toggleForm}></Form>}
             </MealsContext.Provider>
           </MainTemplate>
         </FormContext.Provider>
       </ThemeProvider>
-    </>
+    </Router>
   );
 };
 

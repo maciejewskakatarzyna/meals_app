@@ -12,16 +12,16 @@ import {
 const Header = ({ toggleForm }) => (
   <Wrapper>
     <Container>
-      <Logo>ThermoPlan</Logo>
+      <Logo to='/'>ThermoPlan</Logo>
       <Navigation>
         <NavItem>
-          <Link>Obiady</Link>
+          <Link to='/dinners'>Obiady</Link>
         </NavItem>
         <NavItem>
-          <Link>Desery</Link>
+          <Link to='/desserts'>Desery</Link>
         </NavItem>
         <NavItem>
-          <Link>Kolacje</Link>
+          <Link to='/sappers'>Kolacje</Link>
         </NavItem>
       </Navigation>
       <Button onClick={() => toggleForm()}>Dodaj danie</Button>
