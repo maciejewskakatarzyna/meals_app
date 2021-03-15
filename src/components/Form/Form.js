@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import Button from 'components/Button/Button';
-import { MealsContext } from 'App';
+import { MealsContext } from 'views/Root';
 import {
   Wrapper,
   FormContainer,

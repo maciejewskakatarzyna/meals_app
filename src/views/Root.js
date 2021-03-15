@@ -4,9 +4,9 @@ import { GlobalStyle } from 'assets/styles/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 import { theme } from 'assets/styles/theme';
 import Form from 'components/Form/Form';
-import Header from 'components/Header/Header';
 import List from 'components/List/List';
 import Card from 'components/Card/Card';
+import MainTemplate from 'components/templates/MainTemplate/MainTemplate';
 
 export const MealsContext = React.createContext({
   meals: [],
@@ -14,7 +14,11 @@ export const MealsContext = React.createContext({
   deleteMeal: () => {},
 });
 
-const App = () => {
+export const FormContext = React.createContext({
+  toggleForm: () => {},
+});
+
+const Root = () => {
   const [isCardOpen, setCard] = useState(false);
   const [isFormOpen, setForm] = useState(false);
   const [meals, setMeals] = useState(mealsData);
@@ -46,15 +50,18 @@ const App = () => {
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <MealsContext.Provider value={{ meals, handleAddMeal, deleteMeal }}>
-          <Header toggleForm={toggleForm} />
-          <List toggleCard={toggleCard}></List>
-          {isCardOpen && <Card toggleCard={toggleCard}></Card>}
-          {isFormOpen && <Form toggleForm={toggleForm}></Form>}
-        </MealsContext.Provider>
+        <FormContext.Provider value={{ toggleForm }}>
+          <MainTemplate>
+            <MealsContext.Provider value={{ meals, handleAddMeal, deleteMeal }}>
+              <List toggleCard={toggleCard}></List>
+              {isCardOpen && <Card toggleCard={toggleCard}></Card>}
+              {isFormOpen && <Form toggleForm={toggleForm}></Form>}
+            </MealsContext.Provider>
+          </MainTemplate>
+        </FormContext.Provider>
       </ThemeProvider>
     </>
   );
 };
 
-export default App;
+export default Root;

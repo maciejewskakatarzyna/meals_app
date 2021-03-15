@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import ListItem from 'components/List/ListItem';
-import { MealsContext } from 'App';
+import { MealsContext } from 'views/Root';
 import { Wrapper } from './List.styles';
 
 const List = ({ toggleCard }) => {

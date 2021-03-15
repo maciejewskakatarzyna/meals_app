@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { MealsContext } from 'App';
+import { MealsContext } from 'views/Root';
 import { Wrapper, Image, Title } from './ListItem.styles';
 import DeleteButton from 'components/Button/DeleteButton';
 
