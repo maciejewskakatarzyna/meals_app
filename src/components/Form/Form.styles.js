@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   box-shadow: 0 20px 40px -5px rgba(51, 51, 51, 0.3);
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.white};
   padding: 70px 80px 50px;
   position: fixed;
   top: 20%;
@@ -39,22 +39,22 @@ export const FormItem = styled.div`
 export const FormItemBar = styled.div`
   width: 100%;
   height: 2px;
-  background: #333333;
+  background: ${({ theme }) => theme.colors.grey};
   transition: 0.1s all;
 `;
 
 export const Label = styled.label`
-  color: #333333;
+  color: ${({ theme }) => theme.colors.grey};
   position: absolute;
   top: 3px;
   left: 0;
   transition: 0.2s ease-out all;
-  font-size: 16px;
+  font-size: ${({ theme }) => theme.fontSize.normal};
 `;
 
 export const Input = styled.input`
-  color: #333333;
-  font-size: 16px;
+  color: ${({ theme }) => theme.colors.grey};
+  font-size: ${({ theme }) => theme.fontSize.normal};
   border: none;
   line-height: 22px;
   width: 100%;
@@ -63,18 +63,14 @@ export const Input = styled.input`
   &:focus {
     outline: none;
   }
+
+  &:focus + Label {
+    top: -22px;
+    font-size: ${({ theme }) => theme.fontSize.extraSmall};
+  }
+
+  &:not(:placeholder-shown) + Label {
+    top: -22px;
+    font-size: ${({ theme }) => theme.fontSize.extraSmall};
+  }
 `;
-
-//   .input:focus + .label {
-//     top: -22px;
-//     font-size: 13px;
-//   }
-
-//   .input:not(:placeholder-shown) + .label {
-//     top: -22px;
-//     font-size: 13px;
-//   }
-
-//   .input:focus ~ .formItemBar {
-//     background: #009a3d;
-//   }

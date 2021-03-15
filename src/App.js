@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { meals as mealsData } from 'data';
-import './index.css';
+import { GlobalStyle } from 'assets/styles/GlobalStyle';
+import { ThemeProvider } from 'styled-components';
+import { theme } from 'assets/styles/theme';
 import Form from 'components/Form/Form';
 import Header from 'components/Header/Header';
 import List from 'components/List/List';
@@ -42,12 +44,15 @@ const App = () => {
 
   return (
     <>
-      <MealsContext.Provider value={{ meals, handleAddMeal, deleteMeal }}>
-        <Header toggleForm={toggleForm} />
-        <List toggleCard={toggleCard}></List>
-        {isCardOpen && <Card toggleCard={toggleCard}></Card>}
-        {isFormOpen && <Form toggleForm={toggleForm}></Form>}
-      </MealsContext.Provider>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <MealsContext.Provider value={{ meals, handleAddMeal, deleteMeal }}>
+          <Header toggleForm={toggleForm} />
+          <List toggleCard={toggleCard}></List>
+          {isCardOpen && <Card toggleCard={toggleCard}></Card>}
+          {isFormOpen && <Form toggleForm={toggleForm}></Form>}
+        </MealsContext.Provider>
+      </ThemeProvider>
     </>
   );
 };

@@ -27,7 +27,7 @@ export const Title = styled.div`
   align-items: center;
 
   p {
-    font-size: 16px;
+    font-size: ${({ theme }) => theme.fontSize.normal};
     line-height: 20px;
     font-weight: 500;
     margin: 0 10px 0 0;

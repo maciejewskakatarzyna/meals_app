@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   padding: 0px 40px;
   width: 100%;
   box-shadow: 0 2px 3px 0 rgba(51, 51, 51, 0.2);
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 
 export const Container = styled.div`
@@ -32,20 +32,20 @@ export const NavItem = styled.li`
 
 export const Link = styled.a`
   text-decoration: none;
-  color: #113c2b;
-  font-size: 16px;
+  color: ${({ theme }) => theme.colors.darkGreen};
+  font-size: ${({ theme }) => theme.fontSize.normal};
   line-height: 16px;
   font-weight: 700;
   letter-spacing: 0.2px;
 
   &:hover {
     padding-bottom: 2px;
-    border-bottom: 2px #009a3d solid;
+    border-bottom: 2px ${({ theme }) => theme.colors.lightGreen} solid;
   }
 `;
 
 export const Logo = styled.div`
-  font-size: 28px;
+  font-size: ${({ theme }) => theme.fontSize.large};
   font-weight: 700;
-  color: #009a3d;
+  color: ${({ theme }) => theme.colors.lightGreen};
 `;
